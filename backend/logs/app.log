@@ -1,0 +1,19 @@
+2026-05-19 16:06:20.466 | INFO     | app.main:lifespan:11 - NewsNova AI starting up...
+2026-05-19 16:06:20.563 | INFO     | app.main:lifespan:13 - Database tables ready.
+2026-05-19 16:11:17.157 | INFO     | app.main:lifespan:15 - NewsNova AI shutting down.
+2026-05-19 16:11:59.095 | INFO     | app.main:lifespan:11 - NewsNova AI starting up...
+2026-05-19 16:11:59.136 | INFO     | app.main:lifespan:13 - Database tables ready.
+2026-05-19 16:13:16.369 | WARNING  | app.recommendation.recommender:recommend_news:12 - No articles in DB for recommendation
+2026-05-19 16:13:20.392 | WARNING  | app.recommendation.recommender:recommend_news:12 - No articles in DB for recommendation
+2026-05-19 16:13:20.574 | WARNING  | app.recommendation.recommender:recommend_news:12 - No articles in DB for recommendation
+2026-05-19 16:13:20.994 | WARNING  | app.recommendation.recommender:recommend_news:12 - No articles in DB for recommendation
+2026-05-19 16:15:16.125 | INFO     | app.services.news_fetcher:fetch_and_store_news:36 - Fetched 10 new articles for: technology
+2026-05-19 16:15:16.563 | INFO     | app.services.news_fetcher:fetch_and_store_news:36 - Fetched 10 new articles for: science
+2026-05-19 16:15:17.205 | INFO     | app.services.news_fetcher:fetch_and_store_news:36 - Fetched 7 new articles for: business
+2026-05-19 16:15:17.849 | INFO     | app.services.news_fetcher:fetch_and_store_news:36 - Fetched 10 new articles for: sports
+2026-05-19 16:15:18.429 | INFO     | app.services.news_fetcher:fetch_and_store_news:36 - Fetched 9 new articles for: world
+2026-05-19 16:18:01.621 | INFO     | app.services.news_fetcher:fetch_and_store_news:36 - Fetched 0 new articles for: technology
+2026-05-19 16:18:02.037 | INFO     | app.services.news_fetcher:fetch_and_store_news:36 - Fetched 0 new articles for: science
+2026-05-19 16:18:02.539 | INFO     | app.services.news_fetcher:fetch_and_store_news:36 - Fetched 0 new articles for: business
+2026-05-19 16:18:03.069 | INFO     | app.services.news_fetcher:fetch_and_store_news:36 - Fetched 0 new articles for: sports
+2026-05-19 16:18:03.207 | INFO     | app.services.news_fetcher:fetch_and_store_news:36 - Fetched 0 new articles for: world
