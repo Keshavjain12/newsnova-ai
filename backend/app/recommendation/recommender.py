@@ -1,21 +1,31 @@
-from sentence_transformers import SentenceTransformer
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from sqlalchemy.orm import Session
 from app.models.news import News
 from app.core.logger import logger
 
-model = SentenceTransformer("all-MiniLM-L6-v2")
 
 def recommend_news(user_interest: str, db: Session, top_k: int = 5) -> list:
     articles = db.query(News).order_by(News.published_at.desc()).limit(200).all()
     if not articles:
         logger.warning("No articles in DB for recommendation")
         return []
+
     titles = [a.title for a in articles]
-    article_embeddings = model.encode(titles)
-    user_embedding = model.encode([user_interest])
-    similarity = cosine_similarity(user_embedding, article_embeddings)[0]
+
+    # Combine user interest with all titles so vectorizer sees the full vocabulary
+    corpus = [user_interest] + titles
+
+    vectorizer = TfidfVectorizer(stop_words="english")
+    tfidf_matrix = vectorizer.fit_transform(corpus)
+
+    # First row is user interest, rest are articles
+    user_vector = tfidf_matrix[0]
+    article_vectors = tfidf_matrix[1:]
+
+    similarity = cosine_similarity(user_vector, article_vectors)[0]
     top_indices = similarity.argsort()[-top_k:][::-1]
+
     return [
         {
             "id": articles[i].id,
